@@ -45,9 +45,23 @@ html
     section
 
     h2 Comments
-    if comments && comments.length > 0
-      ul
-        each comment in comments
-          li= comment.content
-    else
-      p 
+      if comments && comments.length > 0
+        ul
+          each comment in comments
+            li
+              p= comment.content
+              // Delete Comment Form
+              form(action=`/delete-comment/${comment.id}`, method="POST")
+                button(type="submit") Delete
+              // Edit Comment Link
+              form(action=`/edit-comment/${comment.id}`, method="GET")
+                button(type="submit") Edit
+
+        //Left blank on purpose, no comment to display
+      else
+        p
+
+    // Form to add a new comment
+    form(id="comment-form", action='/student1', method="POST")
+        textarea(name="content", placeholder="Add your comment here..." required)
+        button(type="submit") Add Comment

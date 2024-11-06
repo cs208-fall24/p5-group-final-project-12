@@ -27,21 +27,76 @@ app.get('/student1', function (req, res) {
   console.log('GET called');
   
   // Fetch comments for 'Party Major' (or any other major if needed)
-  db.all("SELECT content FROM comments WHERE major = 'Party Major'", [], (err, rows) => {
+  db.all("SELECT * FROM comments WHERE major = 'Party Major'", [], function (err, rows) {
     if (err) {
-      console.error('Error fetching comments:', err);
-      return res.status(500).send('Error fetching comments');
+      console.error('Error fetching comments:', err)
+      return res.status(500).send('Error fetching comments')
     }
 
-    // Ensure comments is passed as an empty array if no comments are found
-    const comments = rows.length > 0 ? rows : [];
+    // Pass empty array if no comments are found
+    const comments = rows.length > 0 ? rows : []
+    res.render('student1', { comments: comments })
+  })
+})
 
-    // Render student1 page with the comments (even if it's empty)
-    res.render('student1', { comments: comments });
+// Add a new comment for 'Party Major'
+app.post('/student1', function (req, res) {
+  const content = req.body.content
+
+  // Insert the new comment into the database
+  db.run("INSERT INTO comments (content, major) VALUES (?, 'Party Major')", [content], function (err) {
+    if (err) {
+      console.error('Error adding comment:', err)
+      return res.status(500).send('Error adding comment')
+    }
+    res.redirect('/student1')  // Redirect back to the Party Major comments page
+  })
+})
+
+// Delete a comment by ID for 'Party Major'
+app.post('/delete-comment/:id', function (req, res) {
+  const id = req.params.id
+
+  // Delete the comment with the given ID
+  db.run("DELETE FROM comments WHERE id = ?", [id], function (err) {
+    if (err) {
+      console.error('Error deleting comment:', err)
+      return res.status(500).send('Error deleting comment')
+    }
+    res.redirect('/student1')  // Redirect back to the Party Major comments page
+  })
+})
+
+// Edit a comment (GET form) for 'Party Major'
+app.get('/edit-comment/:id', function (req, res) {
+  const id = req.params.id;
+
+  // Get the comment to be edited
+  db.get("SELECT * FROM comments WHERE id = ?", [id], function (err, row) {
+    if (err) {
+      console.error('Error fetching comment for edit:', err);
+      return res.status(500).send('Error fetching comment for edit');
+    }
+    
+    // Render the 'edit-comment' page located in views/student1 directory
+    res.render('student1/edit-comment', { comment: row });
   });
 });
 
+// Update the comment for 'Party Major'
+app.post('/update-comment/:id', function (req, res) {
+  const id = req.params.id;
+  const content = req.body.content;
 
+  // Update the comment in the database
+  db.run("UPDATE comments SET content = ? WHERE id = ?", [content, id], function (err) {
+    if (err) {
+      console.error('Error updating comment:', err);
+      return res.status(500).send('Error updating comment');
+    }
+    res.redirect('/student1');  // Redirect back to the Party Major comments page
+  });
+});
 
 app.get('/student2', function (req, res) {
   console.log('GET called')
