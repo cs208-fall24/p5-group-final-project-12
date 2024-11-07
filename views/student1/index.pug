@@ -2,10 +2,9 @@ doctype html
 html
   head
     title Party - student1
-    link(rel='stylesheet' href='css/student1.css')
+    link(rel='stylesheet' href='/css/student1.css')
   body
     h1 Andy Lopez-Martinez
-
     h2 Party Major
     
     // Section 1: Location
@@ -37,31 +36,28 @@ html
     
     // Add Images
     section
-      h2 Images
       img(src='img/party_1.jpg', alt='Epic Party Scene')
       img(src='img/party_2.jpg', alt='Crowd at a Party')
 
     // Display Comments Section
     section
-
-    h2 Comments
+      h2 Comments
       if comments && comments.length > 0
-        ul
+        ul#comments-list
           each comment in comments
-            li
-              p= comment.content
-              // Delete Comment Form
-              form(action=`/delete-comment/${comment.id}`, method="POST")
-                button(type="submit") Delete
-              // Edit Comment Link
-              form(action=`/edit-comment/${comment.id}`, method="GET")
-                button(type="submit") Edit
-
-        //Left blank on purpose, no comment to display
+            li.comment-item
+              div.comment-bubble
+                p= comment.content
+              // Buttons (outside the bubble, below the comment)
+              div.button-container
+                form(action=`/delete-comment/${comment.id}`, method="POST")
+                  button(type="submit" class="delete-button") Delete
+                form(action=`/edit-comment/${comment.id}`, method="GET")
+                  button(type="submit" class="edit-button") Edit
       else
         p
 
     // Form to add a new comment
     form(id="comment-form", action='/student1', method="POST")
         textarea(name="content", placeholder="Add your comment here..." required)
-        button(type="submit") Add Comment
+        button(type="submit") Add Comment  

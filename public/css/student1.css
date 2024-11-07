@@ -1,3 +1,364 @@
-body{
-    background-color: hotpink;
+/* Importing Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Audiowide', cursive; /* Retro, pixelated font */
+    background: linear-gradient(45deg, #00ffff 20%, #ff007f 40%, #ffcc00 60%, #8000ff 80%); /* Gradient */
+    background-size: 300% 300%; /* Set the background size for the gradient */
+    color: #fff;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    text-align: center; /* Center the text of the body */
+    text-shadow: 0 0 10px #ffea00, 0 0 20px #ffe600, 0 0 30px #ffd500, 0 0 40px #ff007f, 0 0 50px #ff007f; /* Static glowing effect on body text */
+    animation: gradientShift 6s ease infinite; /* Apply the moving gradient animation */
+}
+
+/* Keyframe for the moving gradient */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* Header (h1, h2, section h2) glow effect */
+h1, h2, section h2 {
+    font-family: 'Major Mono Display', monospace; /* Monospaced font for headers */
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f, 0 0 50px #ff007f; /* Neon glow */
+    animation: neonGlow 1.5s ease-in-out infinite alternate; /* Apply neon glow animation to headers */
+    text-align: center; /* Center align all headers */
+    margin: 0 auto; /* Ensure headers are centered within their parent containers */
+    display: block; /* Make sure headers are block-level elements, so they can be centered */
+}
+
+/* Keyframe for Neon Glow (for body and headers) */
+@keyframes neonGlow {
+    0% {
+        text-shadow: 0 0 10px #ffd000, 0 0 20px #ffaa00, 0 0 30px #ff007f, 0 0 40px #ff007f, 0 0 50px #ff007f;
+    }
+    100% {
+        text-shadow: 0 0 10px #ff006f, 0 0 20px #ffcc00, 0 0 30px #ff0080, 0 0 40px #ffcc00, 0 0 50px #ffcc00;
+    }
+}
+
+/* Specific Header Styling for Andy Lopez-Martinez and Party Major */
+header h1 {
+    font-size: 4.5rem;
+    color: #ffcc00; /* Neon yellow */
+}
+
+header h2 {
+    font-size: 2.2rem; /* Increased the font size slightly for better visual hierarchy */
+    margin-top: 10px;
+    color: #00c8ff;
+    font-weight: 600;
+    text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f, 0 0 50px #ff007f;
+}
+
+section h2 {
+    font-family: 'Major Mono Display', monospace;
+    text-align: center; /* Center the header */
+    margin: 0 auto; /* Ensure header is centered */
+    font-size: 2.2rem;
+    color: #86edf7;
+    font-weight: 600;
+    margin-top: 30px;
+    letter-spacing: 2px;
+}
+
+section {
+    display: block;  /* Ensure the section itself behaves as a block-level element */
+    width: 100%;     /* Make sure the section takes up the full width */
+    padding: 20px;   /* Optional: Space inside the section */
+    margin-bottom: 30px; /* Optional: Space below the section */
+}
+
+/* Smaller h3 for Subheaders */
+h3 {
+    font-family: 'Major Mono Display', monospace; /* Monospaced font for headers */
+    font-size: 1.4rem; /* Smaller size for h3 headers */
+    color: #fff6c4;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #ff007b, 0 0 20px #00bfff, 0 0 30px #95ecff, 0 0 40px #ff007f, 0 0 50px #ff007f;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+    text-align: left; /* Center align all h3 headers */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Start below the normal position */
+    animation: pullUpFadeIn 1s ease-out forwards; /* Apply the animation */
+}
+
+
+
+/* Keyframe for Slide-Up and Fade-In */
+@keyframes pullUpFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); /* Start from below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
+/* Paragraph inside h3 (centering) */
+h3 + p {
+    font-size: 1.2rem;  /* Adjust as needed */
+    text-align: left;    /* Align text to the left */
+    line-height: 1.5;    /* Optional: Adjust line height for readability */
+    margin: 0;           /* Optional: Remove margin to avoid unnecessary spacing */
+    display: block;      /* Ensures that the <p> is displayed as a block element */
+    width: 100%;         /* Ensures the paragraph uses the full width of its container */
+    margin-bottom: 20px; /* Add space after the paragraph if desired */
+}
+
+/* Section with Images - Use Flexbox for Side by Side Layout */
+section {
+    display: flex;
+    justify-content: space-between; /* Space images evenly */
+    flex-wrap: wrap; /* Allow images to wrap if space is tight */
+    gap: 20px; /* Add space between images */
+    padding: 20px;
+}
+
+section img {
+    width: 45%; /* Make images smaller and allow them to fit side by side */
+    max-width: 500px; /* Optional: prevents the images from becoming too large */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 15px; /* Optional: adds rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Optional: adds shadow */
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for images */
+section img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+
+/* Comments Header */
+.comments-container h2 {
+    font-family: 'Major Mono Display', monospace;
+    font-size: 2.5rem;
+    color: #ffcc00;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffd900, 0 0 30px #ffd900, 0 0 40px #ff007f, 0 0 50px #ff007f;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+    text-align: left; /* Align the header to the left */
+    width: 100%; /* Ensure the header spans the full width */
+}
+
+/* Comments List */
+#comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Make sure the list takes full width */
+}
+
+/* Styling for each comment's bubble */
+.comment-item {
+    display: flex;
+    justify-content: flex-start;  /* Align the comments to the left */
+    margin-bottom: 20px;      /* Space between comments */
+    width: 100%;              /* Ensure each comment occupies full width */
+}
+
+/* The comment bubble itself */
+.comment-bubble {
+    background-color: #fff;        /* White background for the bubble */
+    color: #333;                   /* Black font color */
+    padding: 15px 20px;            /* Padding for the bubble */
+    border-radius: 15px;           /* Rounded corners for the bubble */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+    font-size: 1.1rem;             /* Font size inside the bubble */
+    width: 80%;                    /* Limit the width of the comment */
+    word-wrap: break-word;         /* Prevent long words from breaking the layout */
+    position: relative;            /* For the tail effect */
+    animation: fadeInUp 0.5s ease-out; /* Optional: Fade-in animation */
+}
+
+/* Speech bubble "tail" */
+.comment-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Position the tail below the comment */
+    left: 20px;    /* Adjust to align with the left side of the bubble */
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #fff; /* Tail color matches bubble background */
+}
+
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Styling for the Delete and Edit Buttons */
+.comment-item .button-container {
+    display: flex;
+    justify-content: center; /* Center the buttons below the comment bubble */
+    gap: 10px; /* Add some space between the buttons */
+    margin-top: 10px; /* Space between the comment bubble and the buttons */
+}
+
+/* General button styling */
+.comment-item .button-container button {
+    background-color: #3bd5ff; /* Red background for delete button */
+    color: white;
+    padding: 8px 12px; /* Smaller padding for buttons */
+    border: none;
+    border-radius: 8px; /* Rounded corners for buttons */
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-right: 10px; /* Space between the buttons */
+}
+
+.comment-item .button-container button:hover {
+    background-color: #e74c3c; /* Slightly darker red on hover */
+}
+
+.comment-item .button-container button:active {
+    transform: scale(0.95); /* Slightly shrink when clicked */
+}
+
+/* Edit Comment Button */
+.comment-item .button-container .edit-button {
+    background-color: #ff8c00; /* Orange background for edit button */
+}
+
+.comment-item .button-container .edit-button:hover {
+    background-color: #e322e6; /* Darker orange on hover */
+}
+
+
+/* Add New Comment Form */
+form#comment-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+form#comment-form textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    resize: none;
+    transition: border-color 0.3s ease;
+}
+
+form#comment-form textarea:focus {
+    border-color: #ff8c00;
+    outline: none;
+}
+
+form#comment-form button {
+    background-color: #ff007f;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form#comment-form button:hover {
+    background-color: #ff9914;
+}
+
+/* Edit Comment Form */
+.edit-comment-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    width: 60%;
+    margin: 40px auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.edit-comment-container h3 {
+    font-family: 'Major Mono Display', monospace;
+    font-size: 1.8rem; /* Reduced size for h3 */
+    color: #ff3b3f;
+    margin-bottom: 20px;
+    text-align: center; /* Center align the edit comment header */
+}
+
+.edit-comment-container textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* General button styles */
+button {
+    background-color: #ff007f;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none; /* Ensure no border around the button */
+}
+
+/* Hover effect for all buttons */
+button:hover {
+    background-color: #ffe014;
+}
+
+/* Cancel button styles */
+button.cancel-button {
+    background-color: #3498db;
+}
+
+button.cancel-button:hover {
+    background-color: #e71d0a;
 }
