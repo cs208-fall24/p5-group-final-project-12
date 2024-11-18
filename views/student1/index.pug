@@ -61,3 +61,10 @@ html
     form(id="comment-form", action='/student1', method="POST")
         textarea(name="content", placeholder="Add your comment here..." required)
         button(type="submit") Add Comment  
+
+    // Button to view all comments
+    section
+      a(href='/all-comments')
+        button(type="button") View All Comments
+
+    

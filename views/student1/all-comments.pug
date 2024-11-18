@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title All Comments - Party Major
+    link(rel='stylesheet' href='/css/student1.css')
+  body
+    h1 Andy Lopez-Martinez
+    h2 All Comments
+    
+    // Display All Comments Section
+    section
+      if comments && comments.length > 0
+        ul#comments-list
+          each comment in comments
+            li.comment-item
+              div.comment-bubble
+                p= comment.content
+              // Buttons (outside the bubble, below the comment)
+              div.button-container
+                form(action=`/delete-comment/${comment.id}`, method="POST")
+                  button(type="submit" class="delete-button") Delete
+                form(action=`/edit-comment/${comment.id}`, method="GET")
+                  button(type="submit" class="edit-button") Edit
+      else
+        p No comments yet.
+
+    // Button to go back to Party Major
+    section
+      a(href='/student1')
+        button(type="button") Back to Party Major
