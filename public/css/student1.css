@@ -88,8 +88,8 @@ section h2 {
 section {
     display: block;  /* Ensure the section itself behaves as a block-level element */
     width: 100%;     /* Make sure the section takes up the full width */
-    padding: 20px;   /* Optional: Space inside the section */
-    margin-bottom: 30px; /* Optional: Space below the section */
+    padding: 20px;   /* Space inside the section */
+    margin-bottom: 30px; /* Space below the section */
 }
 
 /* Smaller h3 for Subheaders */
@@ -127,8 +127,8 @@ h3 {
 h3 + p {
     font-size: 1.2rem;  /* Adjust as needed */
     text-align: left;    /* Align text to the left */
-    line-height: 1.5;    /* Optional: Adjust line height for readability */
-    margin: 0;           /* Optional: Remove margin to avoid unnecessary spacing */
+    line-height: 1.5;    /* Adjust line height for readability */
+    margin: 0;           /* Remove margin to avoid unnecessary spacing */
     display: block;      /* Ensures that the <p> is displayed as a block element */
     width: 100%;         /* Ensures the paragraph uses the full width of its container */
     margin-bottom: 20px; /* Add space after the paragraph if desired */
@@ -145,10 +145,10 @@ section {
 
 section img {
     width: 45%; /* Make images smaller and allow them to fit side by side */
-    max-width: 500px; /* Optional: prevents the images from becoming too large */
+    max-width: 500px; /* Prevents the images from becoming too large */
     height: auto; /* Maintain aspect ratio */
-    border-radius: 15px; /* Optional: adds rounded corners */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Optional: adds shadow */
+    border-radius: 15px; /* Adds rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Adds shadow */
     transition: transform 0.3s ease;
 }
 
@@ -197,7 +197,7 @@ section img:hover {
     width: 80%;                    /* Limit the width of the comment */
     word-wrap: break-word;         /* Prevent long words from breaking the layout */
     position: relative;            /* For the tail effect */
-    animation: fadeInUp 0.5s ease-out; /* Optional: Fade-in animation */
+    animation: fadeInUp 0.5s ease-out; /* Fade-in animation */
 }
 
 /* Speech bubble "tail" */
@@ -362,3 +362,48 @@ button.cancel-button {
 button.cancel-button:hover {
     background-color: #e71d0a;
 }
+
+/* Play Music Button - Centered with Neon Glow */
+#music-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  #play-music-button {
+    padding: 15px 30px;
+    font-size: 1.5rem;         /* Slightly bigger font size for visibility */
+    background-color: #fff200; /* Background color */
+    color: white;              /* White text */
+    border: none;              /* Remove border */
+    border-radius: 10px;       /* Rounded corners */
+    cursor: pointer;           /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition for background and scale */
+    font-family: 'Major Mono Display', monospace;
+    box-shadow: 0 0 10px #ff00f2, 0 0 20px #ff32ff; /* Neon glow */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Add Neon Glow Effect */
+  #play-music-button:hover {
+    background-color: #f700ff; /* Darker on hover */
+    box-shadow: 0 0 20px #f2ff00, 0 0 30px #fd8dff; /* More intense glow on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  #play-music-button:active {
+    transform: scale(0.95); /* Slight shrink on click */
+    background-color: #ff006f; /* Darker shade on active */
+    box-shadow: 0 0 15px #f2ff00, 0 0 25px #ffff00; /* Glow effect during active state */
+  }
+  
+  /* Focus effect if you want a glowing border when the button is focused */
+  #play-music-button:focus {
+    outline: none;
+    box-shadow: 0 0 20px #ffcc00, 0 0 40px #ffcc00; /* Yellow glow when focused */
+  }
+  
+  

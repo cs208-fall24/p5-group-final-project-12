@@ -4,8 +4,20 @@ html
     title Party - student1
     link(rel='stylesheet' href='/css/student1.css')
   body
+    // Add Background Music as you would an Image
+    section
+    div(id="music-button-container")
+      button(id="play-music-button") Get this party started!
+      audio(id="background-music", loop)
+        source(src="/audio/background-music.mp3", type="audio/mp3")
+        | Your browser does not support the audio element.
+      audio(id="click-sound", preload="auto")
+        source(src="/audio/click-sound.mp3", type="audio/mp3")
+        | Your browser does not support the audio element.
+  
     h1 Andy Lopez-Martinez
     h2 Party Major
+    
     
     // Section 1: Location
     section
@@ -66,5 +78,9 @@ html
     section
       a(href='/all-comments')
         button(type="button") View All Comments
+
+        script(src='/js/student1.js')
+
+
 
     
