@@ -27,7 +27,7 @@ app.get('/student1', function (req, res) {
   console.log('GET called');
   
   // Fetch comments for 'Party Major' (or any other major if needed)
-  db.all("SELECT * FROM comments WHERE major = 'Party Major'", [], function (err, rows) {
+  db.all("SELECT * FROM comments WHERE major = 'Party Major' ORDER BY RANDOM() LIMIT 5", [], function (err, rows) {
     if (err) {
       console.error('Error fetching comments:', err)
       return res.status(500).send('Error fetching comments')
@@ -80,6 +80,23 @@ app.get('/edit-comment/:id', function (req, res) {
     
     // Render the 'edit-comment' page located in views/student1 directory
     res.render('student1/edit-comment', { comment: row });
+  });
+});
+
+// Route to view all comments (including hidden ones)
+app.get('/all-comments', function (req, res) {
+  console.log('GET called');
+  
+  // Fetch all comments from the database, including hidden ones
+  db.all("SELECT * FROM comments", [], function (err, rows) {
+    if (err) {
+      console.error('Error fetching comments:', err);
+      return res.status(500).send('Error fetching comments');
+    }
+
+    // Pass all comments to the all-comments page
+    const comments = rows.length > 0 ? rows : [];
+    res.render('student1/all-comments', { comments: comments });
   });
 });
 
