@@ -5,3 +5,11 @@ head
 body
     h1 Landon Quaintance
     h2#Head Under Water Basket Weaving Masters Program
+
+    section
+      h3 Edit Comment
+      form(action=`/update-comment/${comment.id}`, method="POST")
+        textarea(name="content", required) #{comment.content}
+        div.button-container
+          button(type="submit") Update Comment
+          button(type="button" class="cancel-button" onclick="window.location.href='/student2'") Cancel
