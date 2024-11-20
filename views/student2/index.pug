@@ -75,6 +75,9 @@ body
             p
                 form#Center.styled-text-field(action='/student2' method="POST")
                     textarea(name="content" placeholder="Add your comment here..." required)
-                    button.add-comment(type="submit") Add Comment 
+                    button.add-comment(type="submit") Add Comment
+    section#Center
+        p 
+            button(type="button" onclick="window.location.href='/whole-comment-list'") All Comments
 
 

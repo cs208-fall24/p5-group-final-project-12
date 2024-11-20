@@ -5,6 +5,7 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: black;
     background-image: url('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F699499749%2F198855231447%2F1%2Foriginal.20240218-005947?w=1000&auto=format%2Ccompress&q=75&sharp=10&s=09aad9c1785fc3034e43b1e64942f838');
     background-position: center;
     background-repeat: no-repeat;
