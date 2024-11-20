@@ -8,7 +8,7 @@ body
 
     section
       h3 Edit Comment
-      form(action=`/update-comment/${comment.id}`, method="POST")
+      form(action=`/update-comment/student2/${comment.id}`, method="POST")
         textarea(name="content", required) #{comment.content}
         div.button-container
           button(type="submit") Update Comment
