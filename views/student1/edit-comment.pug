@@ -6,10 +6,10 @@ html
   body
     h1 Andy Lopez-Martinez
     h2 Edit Your Comment
-
+ 
     section
       h3 Edit Comment
-      form(action=`/update-comment/${comment.id}`, method="POST")
+      form(action=`/update-comment/student1/${comment.id}`, method="POST")
         textarea(name="content", required) #{comment.content}
         div.button-container
           button(type="submit") Update Comment

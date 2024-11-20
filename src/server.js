@@ -11,6 +11,7 @@ app.use(express.static('public'))
 app.set('views', 'views')
 app.set('view engine', 'pug')
 app.use(express.urlencoded({ extended: false }))
+app.use(express.json());
 
 db.serialize( function() {
   db.run("CREATE TABLE IF NOT EXISTS comments (id INTEGER PRIMARY KEY, content TEXT, major TEXT)");
@@ -54,18 +55,18 @@ app.post('/student1', function (req, res) {
 })
 
 // Delete a comment by ID for 'Party Major'
-app.post('/delete-comment/:id', function (req, res) {
-  const id = req.params.id
+app.post('/delete-comment/student1/:id', function (req, res) {
+  const id = req.params.id;
 
   // Delete the comment with the given ID
   db.run("DELETE FROM comments WHERE id = ?", [id], function (err) {
     if (err) {
-      console.error('Error deleting comment:', err)
-      return res.status(500).send('Error deleting comment')
+      console.error('Error deleting comment:', err);
+      return res.status(500).send('Error deleting comment');
     }
-    res.redirect('/student1')  // Redirect back to the Party Major comments page
-  })
-})
+    res.redirect('/student1');  // Redirect back to the Party Major comments page
+  });
+});
 
 // Edit a comment (GET form) for 'Party Major'
 app.get('/edit-comment/:id', function (req, res) {
@@ -78,7 +79,7 @@ app.get('/edit-comment/:id', function (req, res) {
       return res.status(500).send('Error fetching comment for edit');
     }
     
-    // Render the 'edit-comment' page located in views/student1 directory
+    // Render the 'comment' page located in views/student2 directory
     res.render('student1/edit-comment', { comment: row });
   });
 });
@@ -88,7 +89,7 @@ app.get('/all-comments', function (req, res) {
   console.log('GET called');
   
   // Fetch all comments from the database, including hidden ones
-  db.all("SELECT * FROM comments", [], function (err, rows) {
+  db.all("SELECT * FROM comments WHERE major = 'Party Major'", [], function (err, rows) {
     if (err) {
       console.error('Error fetching comments:', err);
       return res.status(500).send('Error fetching comments');
@@ -101,7 +102,7 @@ app.get('/all-comments', function (req, res) {
 });
 
 // Update the comment for 'Party Major'
-app.post('/update-comment/:id', function (req, res) {
+app.post('/update-comment/student1/:id', function (req, res) {
   const id = req.params.id;
   const content = req.body.content;
 
@@ -147,18 +148,18 @@ app.post('/student2', function (req, res) {
 })
 
 // Delete a comment by ID for 'Basket Weaving'
-app.post('/delete-comment/:id', function (req, res) {
-  const id = req.params.id
+app.post('/delete-comment/student2/:id', function (req, res) {
+  const id = req.params.id;
 
   // Delete the comment with the given ID
   db.run("DELETE FROM comments WHERE id = ?", [id], function (err) {
     if (err) {
-      console.error('Error deleting comment:', err)
-      return res.status(500).send('Error deleting comment')
+      console.error('Error deleting comment:', err);
+      return res.status(500).send('Error deleting comment');
     }
-    res.redirect('/student2')  // Redirect back to the Basket Weaving comments page
-  })
-})
+    res.redirect('/student2');  // Redirect back to the Basket Weaving comments page
+  });
+});
 
 // Edit a comment (GET form) for 'Basket Weaving'
 app.get('/comment/:id', function (req, res) {
@@ -181,7 +182,7 @@ app.get('/whole-comment-list', function (req, res) {
   console.log('GET called');
   
   // Fetch all comments from the database, including hidden ones
-  db.all("SELECT * FROM comments", [], function (err, rows) {
+  db.all("SELECT * FROM comments WHERE major = 'Basket Weaving'", [], function (err, rows) {
     if (err) {
       console.error('Error fetching comments:', err);
       return res.status(500).send('Error fetching comments');
@@ -194,7 +195,7 @@ app.get('/whole-comment-list', function (req, res) {
 });
 
 // Update the comment for 'Basket Weaving'
-app.post('/update-comment/:id', function (req, res) {
+app.post('/update-comment/student2/:id', function (req, res) {
   const id = req.params.id;
   const content = req.body.content;
 

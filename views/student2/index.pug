@@ -67,7 +67,7 @@ body
                             p= comment.content
                         // Buttons (outside the bubble, below the comment)
                         div
-                            form(action=`/delete-comment/${comment.id}`, method="POST")
+                            form(action=`/delete-comment/student2/${comment.id}`, method="POST")
                                 button.edit-comment(type="submit" class="delete-button") Delete
                             form(action=`/comment/${comment.id}`, method="GET")
                                 button.edit-comment(type="submit" class="edit-button") Edit
