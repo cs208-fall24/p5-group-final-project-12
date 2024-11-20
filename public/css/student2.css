@@ -84,3 +84,12 @@ h2 {
     float: left;
     height: 300px;
 }
+#comments {
+    width: 950px;
+    height: 200px;
+    background-color: lightblue;
+    border: 2px solid black;
+    padding: 2px;
+    margin: 10px auto;
+    opacity: 0.7;
+}

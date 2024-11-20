@@ -101,6 +101,12 @@ app.post('/update-comment/:id', function (req, res) {
 app.get('/student2', function (req, res) {
   console.log('GET called')
   res.render('student2')
+
+  app.get('/comment', (req, res) => {
+
+    res.render('student2/comment');
+
+});
 })
 
 app.get('/student3', function (req, res) {
