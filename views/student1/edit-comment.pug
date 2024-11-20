@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title Edit Comment - Party Major
+    link(rel='stylesheet' href='/css/student1.css')
+  body
+    h1 Andy Lopez-Martinez
+    h2 Edit Your Comment
+ 
+    section
+      h3 Edit Comment
+      form(action=`/update-comment/student1/${comment.id}`, method="POST")
+        textarea(name="content", required) #{comment.content}
+        div.button-container
+          button(type="submit") Update Comment
+          button(type="button" class="cancel-button" onclick="window.location.href='/student1'") Cancel
