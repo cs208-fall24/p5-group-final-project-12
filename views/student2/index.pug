@@ -60,23 +60,21 @@ body
     section#comments
         h2#Center Comments
         if comments && comments.length > 0
-            ul
+            ul.list
                 each comment in comments
-                    li
+                    li.list
                         div
                             p= comment.content
                         // Buttons (outside the bubble, below the comment)
                         div
                             form(action=`/delete-comment/${comment.id}`, method="POST")
-                                button(type="submit" class="delete-button") Delete
+                                button.edit-comment(type="submit" class="delete-button") Delete
                             form(action=`/comment/${comment.id}`, method="GET")
-                                button(type="submit" class="edit-button") Edit
-        else
+                                button.edit-comment(type="submit" class="edit-button") Edit
+    section#Center
             p
-
-        // Form to add a new comment
-        form#comment-form(action='/student2' method="POST")
-            textarea(name="content" placeholder="Add your comment here..." required)
-            button(type="submit") Add Comment 
+                form#Center.styled-text-field(action='/student2' method="POST")
+                    textarea(name="content" placeholder="Add your comment here..." required)
+                    button.add-comment(type="submit") Add Comment 
 
 

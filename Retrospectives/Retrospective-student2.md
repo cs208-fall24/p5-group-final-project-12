@@ -1,7 +1,7 @@
 # Retrospective
 
-- name: Jane Doe
-- email: janedoe@u.boisestate.edu
+- name: Landon Quaintance
+- email: landonquaintance@u.boisestate.edu
 
 ## Experience
 
