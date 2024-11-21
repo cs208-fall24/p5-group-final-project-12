@@ -1,4 +1,4 @@
-html, body {
+#background {
     height: 2000px;
     margin: 0;
     display: flex;
@@ -12,31 +12,16 @@ html, body {
     background-size: cover;
     background-size: 100% auto;
     background-attachment: fixed;
-
-  }
-  
-  #comments {
-    width: 80%;
-    max-width: 600px;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: center;
-  }
-h1 {
-    width: 250px;
-    height: 50px;
-    background-color: red;
-    border: 2px solid black;
-    padding: 1px;
-    margin: 10px auto;
-    text-align : center;
-    line-height: 45px;
-    font-size: 25px;
-    opacity: 0.7;
-
 }
+
+.top {
+    background-color: black;
+    background-image: url('https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F699499749%2F198855231447%2F1%2Foriginal.20240218-005947?w=1000&auto=format%2Ccompress&q=75&sharp=10&s=09aad9c1785fc3034e43b1e64942f838');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #Head {
     width: 700px;
     height: 100px;
@@ -49,6 +34,20 @@ h1 {
     font-size: 30px;
     opacity: 0.7;
 }
+
+h1 {
+    width: 250px;
+    height: 50px;
+    background-color: red;
+    border: 2px solid black;
+    padding: 1px;
+    margin: 10px auto;
+    text-align: center;
+    line-height: 45px;
+    font-size: 25px;
+    opacity: 0.7;
+}
+
 #section1 {
     width: 700px;
     height: 160px;
@@ -58,6 +57,7 @@ h1 {
     margin: 10px auto;
     opacity: 0.7;
 }
+
 #section2 {
     width: 700px;
     height: 450px;
@@ -67,6 +67,7 @@ h1 {
     margin: 10px auto;
     opacity: 0.7;
 }
+
 #section3 {
     width: 700px;
     height: 175px;
@@ -76,9 +77,18 @@ h1 {
     margin: 10px auto;
     opacity: 0.7;
 }
+
 #Center {
     text-align: center;
 }
+
+#Box-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 #image {
     width: 1000px;
     height: 500px;
@@ -88,20 +98,34 @@ h1 {
     padding: 2px;
     margin: 10px auto;
 }
+
 #container {
     width: 950px;
     margin: auto;
 }
+
 #first {
     width: 475px;
     float: left;
     height: 300px;
 }
+
 #second {
     width: 475px;
     float: left;
     height: 300px;
 }
+
+#comments {
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
 #comment-form {
     width: 700px;
     height: 200px;
@@ -109,80 +133,97 @@ h1 {
     margin: 20px auto;
     opacity: 0.9;
 }
+
 .styled-text-field {
-    width: 100%; /* Full width */
-    max-width: 400px; /* Limit the width */
-    padding: 10px; /* Inner padding */
-    margin: 10px 0; /* Spacing around the field */
-    font-size: 16px; /* Text size */
-    border-radius: 5px; /* Rounded corners */
-    outline: none; /* Remove focus outline */
-    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .styled-text-field:focus {
-    border-color: #4a90e2; /* Change border color on focus */
-    box-shadow: 0 2px 6px rgba(74, 144, 226, 0.5); /* Enhance shadow */
+    border-color: #4a90e2;
+    box-shadow: 0 2px 6px rgba(74, 144, 226, 0.5);
 }
 
 .styled-text-field:hover {
-    border-color: #888; /* Change border color on hover */
+    border-color: #888;
 }
+
 ul.list {
-    list-style-type: none; /* Remove default bullets */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-    display: flex; /* Use Flexbox for layout */
-    flex-direction: column /* Arrange items horizontally */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
-  
-li.list{
-    background-color: #f4f4f4; /* Light background for list items */
-    padding: 1px; /* Add padding for space inside */
-    border-radius: 8px; /* Round the corners */
+
+li.list {
+    background-color: #f4f4f4;
+    padding: 1px;
+    border-radius: 8px;
 }
-  
+
 li.list:hover {
-    background-color: #e8e8e8; /* Change background color on hover */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+    background-color: #e8e8e8;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
+
 form {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    gap: 5px; /* Add space between form elements */
+    flex-direction: column;
+    gap: 5px;
     padding: 5px;
     border-radius: 8px;
     width: 60px;
-    margin: 20px auto; /* Center the form on the page */
-  }
-  button.edit-comment {
-    padding: 2px 5px; /* Add padding for a comfortable click area */
+    margin: 20px auto;
+}
+
+button.edit-comment {
+    padding: 2px 5px;
     width: 50px;
-    font-size: 0.9em; /* Set font size */
-    background-color: #f39c12; /* Set the background color */
-    color: white; /* White text color */
-    border: none; /* Remove the default border */
-    border-radius: 8px; /* Rounded corners */
-    cursor: pointer; /* Show pointer cursor on hover */
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
-    outline: none; /* Remove default focus outline */
-  }
-  button.add-comment {
-    padding: 12px 25px; /* Add padding for a comfortable click area */
-    font-size: 1.1em; /* Set font size */
-    font-weight: bold; /* Make the text bold */
-    background-color: #3498db; /* Set the background color */
-    color: white; /* White text color */
-    border: none; /* Remove the default border */
-    border-radius: 8px; /* Rounded corners */
-    cursor: pointer; /* Show pointer cursor on hover */
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
-    outline: none; /* Remove default focus outline */
-  }
-  
-  /* Button hover effect */
-  button.add-comment:hover {
-    background-color: #2980b9; /* Darker blue when hovering */
-    transform: scale(1.05); /* Slightly enlarge the button */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-  }
+    font-size: 0.9em;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    outline: none;
+}
+
+button.update-comment {
+    padding: 2px 5px;
+    width: 80px;
+    font-size: 0.9em;
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    outline: none;
+}
+
+button.add-comment {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    outline: none;
+}
+
+button.add-comment:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
