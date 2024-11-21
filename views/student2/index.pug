@@ -1,9 +1,9 @@
 doctype html
 link(rel='stylesheet' href='css/student2.css')
 
-head
+head#background
     title Under Water Basket weaver (Masters) - Landon Quaintance
-body
+body#background
     h1 Landon Quaintance
     h2#Head Under Water Basket Weaving Masters Program
     section 
@@ -60,23 +60,24 @@ body
     section#comments
         h2#Center Comments
         if comments && comments.length > 0
-            ul
+            ul.list
                 each comment in comments
-                    li
+                    li.list
                         div
                             p= comment.content
                         // Buttons (outside the bubble, below the comment)
                         div
                             form(action=`/delete-comment/student2/${comment.id}`, method="POST")
-                                button(type="submit" class="delete-button") Delete
+                                button.edit-comment(type="submit" class="delete-button") Delete
                             form(action=`/comment/${comment.id}`, method="GET")
-                                button(type="submit" class="edit-button") Edit
-        else
+                                button.edit-comment(type="submit" class="edit-button") Edit
+    section#Center
             p
-
-        // Form to add a new comment
-        form#comment-form(action='/student2' method="POST")
-            textarea(name="content" placeholder="Add your comment here..." required)
-            button(type="submit") Add Comment 
+                form#Center.styled-text-field(action='/student2' method="POST")
+                    textarea(name="content" placeholder="Add your comment here..." required)
+                    button.add-comment(type="submit") Add Comment
+    section#Center
+        p 
+            button.add-comment(type="button" onclick="window.location.href='/whole-comment-list'") All Comments
 
 

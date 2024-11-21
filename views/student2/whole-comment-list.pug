@@ -1,30 +1,30 @@
 doctype html
+link(rel='stylesheet' href='/css/student2.css')
 html
-  head
-    title All Comments - Basket Weaving 
-    link(rel='stylesheet' href='/css/student2.css')
-  body
-    h1 Landon Quaintance
-    h2 All Comments
-    
-    // Display All Comments Section
-    section
-      if comments && comments.length > 0
-        ul#comments-list
-          each comment in comments
-            li.comment-item
-              div.comment-bubble
-                p= comment.content
-              // Buttons (outside the bubble, below the comment)
-              div.button-container
-                form(action=`/delete-comment/${comment.id}`, method="POST")
-                  button(type="submit" class="delete-button") Delete
-                form(action=`/comment/${comment.id}`, method="GET")
-                  button(type="submit" class="edit-button") Edit
-      else
-        p No comments yet.
+    head.top
+        title All Comments - Basket Weaving 
+    body.top
+        h1 Landon Quaintance
+        h2#Head All Comments
 
-    // Button to go back to Basket Weaving Major
-    section
-      a(href='/student2')
-        button(type="button") Back to Basket Weaving Major
+        // Display All Comments Section
+        section#Box-center
+                if comments && comments.length > 0
+                    ul.list
+                    each comment in comments
+                        li.list
+                            div
+                                p= comment.content
+                        // Buttons (outside the bubble, below the comment)
+                        div
+                            form#Center.styled-text-field(action=`/delete-comment/student2/${comment.id}`, method="POST")
+                                button.edit-comment(type="submit" class="delete-button") Delete
+                            form#Center.styled-text-field(action=`/comment/${comment.id}`, method="GET")
+                                button.edit-comment(type="submit" class="edit-button") Edit
+                else
+                    p No comments yet.
+
+        // Button to go back to Basket Weaving Major
+        section#Box-center
+            a(href='/student2')
+                button(type="button") Back to Basket Weaving Major

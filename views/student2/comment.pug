@@ -1,15 +1,16 @@
 doctype html
-head
-    link(rel='stylesheet' href='css/student2.css')
+link(rel='stylesheet' href='/css/student2.css')
+head.top
+
     title Under Water Basket weaver (Masters) - Landon Quaintance
-body
+body.top
     h1 Landon Quaintance
     h2#Head Under Water Basket Weaving Masters Program
 
-    section
-      h3 Edit Comment
-      form(action=`/update-comment/student2/${comment.id}`, method="POST")
-        textarea(name="content", required) #{comment.content}
-        div.button-container
-          button(type="submit") Update Comment
-          button(type="button" class="cancel-button" onclick="window.location.href='/student2'") Cancel
+    section#section3
+        h3#Box-center Edit Comment
+        form(action=`/update-comment/student2/${comment.id}`, method="POST")
+            textarea(name="content", required) #{comment.content}
+            div.button-container
+                button.update-comment(type="submit") Update Comment
+                button.update-comment(type="button" class="cancel-button" onclick="window.location.href='/student2'") Cancel 
